@@ -51,6 +51,11 @@ export const routes: Routes = [
         loadComponent: () => import('./dashboard/pages/input-ouput/input-ouput.component')
       },
       {
+        path: 'material',
+        title: 'Angular Material',
+        loadComponent: () => import('./dashboard/pages/material/material.component')
+      },
+      {
         path: '',
         redirectTo: 'control-flow',
         pathMatch: 'full'
@@ -59,7 +64,13 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dashboard',
+    // redirectTo: '/dashboard',
+    redirectTo: (route) => {
+      // console.log(route);
+      // const authService = inject(AuthService);
+      // if (authService.isLogged){return '/dashboard'} else return 'login'
+      return '/dashboard/material';
+    },
     pathMatch: 'full'
   }
 ];
